@@ -127,7 +127,9 @@ def fitness_func(city, rout):                                           # Fitnes
         
         rout.append(combos[pos][1])
 
+        print("From " + str(city) + " to " + str(combos[pos][1]) + " is " + str(smallest) + " units.")
         return smallest
+        
 
 def main():
     the_cost = []
@@ -138,11 +140,12 @@ def main():
     
     for i in range(1,10):          # A loop to initialize a start and end state for all cities. 
         Problem(i,i)
+        print("Start City: " + str(i))
         path,cost = genetic_algorithm(city_dictionary,i,9)
         the_cost.append(cost)
         path_dictionary[cost] = path
         print("Path: " + str(path))
-        print(str(cost) + " units to get to all of the above cities")
+        print("A total of " + str(cost) + " units to get to all of the above cities\n")
 
     best_cost = min(the_cost)
     print("\nBest Cost: " + str(best_cost))
